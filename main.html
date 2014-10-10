@@ -1,0 +1,52 @@
+<head>
+  <title>StoryPost - Tell Your Story to the World</title>
+  <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <div class="container">
+  	<header>
+  		<h1><i class="fa fa-paper-plane"></i> StoryPost</h1>
+        <h2>Tell your story to the world.  Anonymously.</h2>
+  	</header>
+  
+  {{> addPost}}
+  {{> postList}}
+
+	<footer>
+		<p>
+			<a href="/">StoryPost</a> was created by <a href="http://howapped.com" target="_blank">HowApped</a>
+		</p>
+	</footer>
+	</div>
+</body>
+
+<template name='addPost'>
+	<section class="addPost">
+		<form action="">
+			<input type="text" class='title' placeholder="title" required><br>
+			<textarea placeholder="Write whatever you like" id="" cols="30" rows="10" class="story"></textarea><br>
+			<input type="text" class="author" name='autor' placeholder='Pen Name'><br>
+			<input type="submit" value='Post!'>
+		</form>
+	</section>
+</template>
+
+<template name='postList'>
+	<section class="postList">
+		{{#each posts}}
+			<article>
+				<h3>{{title}}</h3>
+				<p>
+					{{story}}
+				</p>
+				<small>
+					<p> - {{author}}, published on {{date}}</p>
+					<i class="fa fa-trash delete"></i>
+				</small>
+			</article>
+		{{/each}}
+	</section>
+</template>
+
+
